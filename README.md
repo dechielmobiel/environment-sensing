@@ -126,5 +126,12 @@ void ei_printf(const char *format, ...) {
 
 ```
 # test the deployment code
-to test of the model and code is correct 
+to test of the model and code is correct open the static_buffer example in your generated library.
+next go to your model for exaple at live classification and load a validated sample and go to detailed results copy the raw feature to paste in the following line of the code:
+```arduino
+static const float features[] = {
+    -19.8800, -0.6900, 8.2300, -17.6600, -1.1300, 5.9700, ...
+};
+```
+after this compare the result of the code to the model and if the same the code is working correctly.
 
