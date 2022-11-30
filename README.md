@@ -21,5 +21,9 @@ then open a commandprompt with edge impulse cli installed and type in the follow
 ```
 edge-impulse-data-fowarder
 ```
+then the cli will ask you to login to your edge impulse account.
+next the cli will ask to wich project you want to connect the device, this can be done by using the arrowkeys.
+after this the cli will detect the ammount of sensor axis form the code and asks you to name them sperated by a, 
+(this has to be done in the exact same order as in the code). 
 
 
