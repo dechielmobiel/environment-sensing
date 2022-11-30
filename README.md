@@ -34,10 +34,10 @@ here is a example of the code for the AS7341.
 ```
 // Include the Arduino library here (something like your_project_inference.h) 
 // In the Arduino IDE see **File > Examples > Your project name - Edge Impulse > Static buffer** to get the exact name
-#include <probeersel_voor_school_inferencing.h>
+#include <zonlicht_vs_kunstlicht_inferencing.h>
 #include <Adafruit_AS7341.h>
 
-#define FREQUENCY_HZ        EI_CLASSIFIER_FREQUENCY
+#define FREQUENCY_HZ        (2)
 #define INTERVAL_MS         (1000 / (FREQUENCY_HZ + 1))
 
 Adafruit_AS7341 as7341;
@@ -123,5 +123,8 @@ void ei_printf(const char *format, ...) {
         Serial.write(print_buf);
     }
 }
+
 ```
+# test the deployment code
+to test of the model and code is correct 
 
