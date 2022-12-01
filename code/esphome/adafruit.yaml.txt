@@ -24,8 +24,8 @@ ota:
   password: "environmental"
 
 wifi:
-  ssid: "Ziggo3166762"
-  password: "ddnj5TqJchkr"
+  ssid: "SSID"
+  password: "PASSWORD"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
