@@ -1,0 +1,128 @@
+esphome:
+  name: adafruit
+  platform: ESP32
+  board: nodemcu-32s
+
+  includes:
+    - my_custom_VEML7700.h
+    - my_custom_AS7341.h
+    - my_custom_DPS310.h
+  libraries:
+    - "Adafruit VEML7700 Library"
+    - "https://github.com/adafruit/Adafruit_AS7341"
+    - "https://github.com/adafruit/Adafruit_DPS310"
+
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "environmental"
+
+ota:
+  password: "environmental"
+
+wifi:
+  ssid: "Ziggo3166762"
+  password: "ddnj5TqJchkr"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Adafruit Fallback Hotspot"
+    password: "fVTpeYLjIyqv"
+
+captive_portal:
+
+i2c:
+  sda: 21
+  scl: 22
+  scan: true
+  id: bus_a
+
+
+sensor:
+  - platform: shtcx
+    temperature:
+      name: "huiskamer_Temperature"
+    humidity:
+      name: "huiskamer_Humidity"
+    address: 0x70
+    update_interval: 60s
+
+  - platform: sgp30
+    eco2:
+      name: "huiskamer eCO2"
+      accuracy_decimals: 1
+    tvoc:
+      name: "huiskamer TVOC"
+      accuracy_decimals: 1
+    store_baseline: yes
+    address: 0x58
+    update_interval: 1s
+
+  - platform: custom
+    lambda: |-
+      auto veml7700 = new VEML7700CustomSensor();
+      App.register_component(veml7700);
+      return {veml7700, veml7700->lux_sensor, veml7700->white_sensor, veml7700->als_sensor};
+   
+    sensors:
+     - name: "VEML7700 Light"
+     - name: "VEML7700 Lux"
+       unit_of_measurement: Lux
+       accuracy_decimals: 0
+     - name: "VEML7700 White"
+       unit_of_measurement: raw
+       accuracy_decimals: 0
+     - name: "VEML7700 ALS"
+       unit_of_measurement: raw
+       accuracy_decimals: 0
+  
+  - platform: custom
+    lambda: |-
+      auto as7341 = new AS7341CustomSensor();
+      App.register_component(as7341);
+      return {as7341, as7341->violet_sensor, as7341->indigo_sensor, as7341->blue_sensor, as7341->cyan_sensor, as7341->green_sensor, as7341->yellow_sensor, as7341->orange_sensor, as7341->red_sensor};
+
+    sensors:
+     - name: "AS7341 spectral sensor"
+     - name: "AS7341 violet"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 indigo"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 blue"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 cyan"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 green"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 yellow"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 orange"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+     - name: "AS7341 red"
+       unit_of_measurement: counts
+       accuracy_decimals: 3
+
+  - platform: custom
+    lambda: |-
+      auto dps310 = new DPS310CustomSensor();
+      App.register_component(dps310);
+      return {dps310, dps310->temp_sensor, dps310->pressure_sensor};
+   
+    sensors:
+     - name: "DPS310 temp & pressure sensor"
+     - name: "DPS310 temperature"
+       unit_of_measurement: C
+       accuracy_decimals: 2
+     - name: "DPS310 pressure"
+       unit_of_measurement: hPa
+       accuracy_decimals: 2

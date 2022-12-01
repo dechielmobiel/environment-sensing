@@ -1,0 +1,69 @@
+#include "esphome.h"
+#include "Adafruit_AS7341.h"
+
+// Requires this lib installed: $ platformio lib --global install "Adafruit BusIO"
+// based on https://github.com/adafruit/Adafruit_VEML7700/blob/master/examples/veml7700_test/veml7700_test.ino
+
+
+class AS7341CustomSensor : public PollingComponent, public Sensor {
+public:
+Adafruit_AS7341 as7341 = Adafruit_AS7341();
+
+Sensor *violet_sensor = new Sensor();
+Sensor *indigo_sensor = new Sensor();
+Sensor *blue_sensor = new Sensor();
+Sensor *cyan_sensor = new Sensor();
+Sensor *green_sensor = new Sensor();
+Sensor *yellow_sensor = new Sensor();
+Sensor *orange_sensor = new Sensor();
+Sensor *red_sensor = new Sensor();
+
+AS7341CustomSensor() : PollingComponent(1500) {}
+void setup() override {
+    Wire.begin();
+    as7341.begin();
+    as7341.setGain(AS7341_GAIN_256X);
+    as7341.setASTEP(100);
+    as7341.setATIME(100);
+    as7341.startReading();
+    bool enableSpcetralMeasurement(true);
+    as7341.readAllChannels();
+    // veml.powerSaveEnable(true);
+    // veml.setPowerSaveMode(VEML7700_POWERSAVE_MODE4);
+    // veml.setLowThreshold(10000);
+    // veml.setHighThreshold(20000);
+    // veml.interruptEnable(true);
+}
+
+void update() override {
+    float violet = as7341.getChannel(AS7341_CHANNEL_415nm_F1);
+    float indigo = as7341.getChannel(AS7341_CHANNEL_445nm_F2);
+    float blue = as7341.getChannel(AS7341_CHANNEL_480nm_F3);
+    float cyan = as7341.getChannel(AS7341_CHANNEL_515nm_F4);
+    float green = as7341.getChannel(AS7341_CHANNEL_555nm_F5);
+    float yellow = as7341.getChannel(AS7341_CHANNEL_590nm_F6);
+    float orange = as7341.getChannel(AS7341_CHANNEL_630nm_F7);
+    float red = as7341.getChannel(AS7341_CHANNEL_680nm_F8);
+
+    ESP_LOGD("AS7341", "The value of sensor 415nm is: %.0f", violet);
+    ESP_LOGD("AS7341", "The value of sensor 445nm is: %.0f", indigo);
+    ESP_LOGD("AS7341", "The value of sensor 480nm is: %.0f", blue);
+    ESP_LOGD("AS7341", "The value of sensor 515nm is: %.0f", cyan);
+    ESP_LOGD("AS7341", "The value of sensor 555nm is: %.0f", green);
+    ESP_LOGD("AS7341", "The value of sensor 590nm is: %.0f", yellow);
+    ESP_LOGD("AS7341", "The value of sensor 630nm is: %.0f", orange);
+    ESP_LOGD("AS7341", "The value of sensor 680nm is: %.0f", red);
+
+
+
+ violet_sensor->publish_state(violet/7260);
+ indigo_sensor->publish_state(indigo/7260);
+ blue_sensor->publish_state(blue/7260);
+ cyan_sensor->publish_state(cyan/7260);
+ green_sensor->publish_state(green/7260);
+ yellow_sensor->publish_state(yellow/7260);
+ orange_sensor->publish_state(orange/7260);
+ red_sensor->publish_state(red/7260);
+
+}
+};
