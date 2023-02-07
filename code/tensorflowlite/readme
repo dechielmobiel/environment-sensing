@@ -1,0 +1,6 @@
+tensorflow Lite documentation: https://www.tensorflow.org/lite
+example to convert model to C++ cpp files: https://eloquentarduino.com/tensorflow-lite-esp32/
+Yamnet sound classification using ESC-50 dataset: https://tfhub.dev/google/lite-model/yamnet/tflite/1
+tutorial how to use yamnet with the ESC-50 dataset: https://www.tensorflow.org/tutorials/audio/transfer_learning_audio#esc-50_dataset
+ESC-50 dataset: https://github.com/karolpiczak/ESC-50
+other tensorflow lite examples: https://github.com/tensorflow/examples
