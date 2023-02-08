@@ -5,7 +5,7 @@ this repository contains all the code and hardware designs for a environnmental 
 - code 📄
 - mechanical drawings 🔧
 - pcb files 🔋
-# Pre requisites 
+# Prerequisites 
 # Hardware
 - arduino nano 33 ble sense
 - esp32 (devkit)
