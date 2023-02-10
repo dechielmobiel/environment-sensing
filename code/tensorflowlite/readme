@@ -5,9 +5,9 @@ tutorial how to use yamnet with the ESC-50 dataset: https://www.tensorflow.org/t
 ESC-50 dataset: https://github.com/karolpiczak/ESC-50
 other tensorflow lite examples: https://github.com/tensorflow/examples
 
-down here follows a instruction on how to use and teh train the "Hello world" example that predicts the sine of y for a given x vallue and how to convert to a C++ model.
+down here follows a instruction on how to use and then train the "Hello world" example that predicts the sine of y for a given x vallue and how to convert to a C++ model.
 
-```
+```jupyter notebook
 Train a Simple TensorFlow Lite for Microcontrollers model
 This notebook demonstrates the process of training a 2.5 kB model using TensorFlow and converting it for use with TensorFlow Lite for Microcontrollers.
 
