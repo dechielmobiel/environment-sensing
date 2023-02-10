@@ -6,7 +6,7 @@ ESC-50 dataset: https://github.com/karolpiczak/ESC-50
 other tensorflow lite examples: https://github.com/tensorflow/examples
 
 down here follows a instruction on how to use and teh train the "Hello world" example that predicts the sine of y for a given x vallue and how to convert to a C++ model.
-```
+```jupyter notebook
 {
   "cells": [
     {
