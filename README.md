@@ -136,7 +136,7 @@ static const float features[] = {
 after this compare the result of the code to the model and if the same the code is working correctly.
 
 # how to use a Tensorflow Lite model on edge devices.
-```python
+```Jupyter Notebook
 
 Train a Simple TensorFlow Lite for Microcontrollers model
 This notebook demonstrates the process of training a 2.5 kB model using TensorFlow and converting it for use with TensorFlow Lite for Microcontrollers.
