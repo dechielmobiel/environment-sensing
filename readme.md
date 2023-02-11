@@ -10,6 +10,8 @@ this repository contains all the code and hardware designs for a environnmental 
   - ESPhome
 - mechanical drawings 🔧
 - pcb files 🔋
+  - Gerber files
+  - project files (schematic + board)
 # Prerequisites 
 # Hardware
 - arduino nano 33 ble sense
