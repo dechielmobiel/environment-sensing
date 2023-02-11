@@ -3,6 +3,11 @@ this repository contains all the code and hardware designs for a environnmental 
 # Repesitory contents
 - bill of materials 💸
 - code 📄
+  - Tensorflow Lite
+  - Edge impulse
+  - Luxpy
+  - BLE
+  - ESPhome
 - mechanical drawings 🔧
 - pcb files 🔋
 # Prerequisites 
