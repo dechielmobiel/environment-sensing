@@ -25,20 +25,20 @@ this repository contains all the code and hardware designs for a environnmental 
 - nrf connect (Android or IOS)
 
 # Use esp to capture datapoints for edge impulse
-first upload the ...data_aquisition code for example (AS7341_data_aquisition) this code can be editted for your specific sensor
-then open a commandprompt with edge impulse cli installed and type in the following command.
+first upload the ...data_aquisition code for example (AS7341_data_aquisition).this code can be editted for your specific sensor.
+Then open a commandprompt with edge impulse cli installed and type in the following command.
 ```
 edge-impulse-data-fowarder
 ```
 then the cli will ask you to login to your edge impulse account.
 next the cli will ask to wich project you want to connect the device, this can be done by using the arrowkeys.
-after this the cli will detect the ammount of sensor axis form the code and asks you to name them sperated by a comma 
+after this the cli will detect the ammount of sensor axis from the code and asks you to name them, sperated by a comma 
 (this has to be done in the exact same order as in the code). 
 
 now you can build your impulse 
 
 # deploy the impulse on a esp32 
-the code for the deployment of your impulse on esp32 (or other adruino enabled devices) is based on the data forwarder code and can be modified to work with your sensor just as in the aquisition. to change or upgrade the model you only have to change the infernence include.
+the code for the deployment of your impulse on esp32 (or other adruino enabled devices) is based on the data forwarder code and can be modified to work with your sensor just as in the aquisition. To change or upgrade the model you only have to change the inference include file.
 here is a example of the code for the AS7341.
 ```
 // Include the Arduino library here (something like your_project_inference.h) 
@@ -136,7 +136,7 @@ void ei_printf(const char *format, ...) {
 ```
 # test the deployment code
 to test of the model and code is correct open the static_buffer example in your generated library.
-next go to your model for exaple at live classification and load a validated sample and go to detailed results copy the raw feature to paste in the following line of the code:
+next go to your model in the web editor for example at live classification and load a validated sample and go to detailed results copy the raw feature to paste in the following line of the code:
 ```arduino
 static const float features[] = {
     -19.8800, -0.6900, 8.2300, -17.6600, -1.1300, 5.9700, ...
