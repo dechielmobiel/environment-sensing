@@ -18,6 +18,8 @@ this repository contains all the code and hardware designs for a environnmental 
 - esp32 (devkit)
 # Software 
 - edge impulse cli
+- Python (latest stable version)
+- tensorflow 2.11
 - esp idf/arduino ide/visual studio code
 - git bash
 - nrf connect (Android or IOS)
