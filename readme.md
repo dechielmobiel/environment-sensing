@@ -14,8 +14,8 @@ this repository contains all the code and hardware designs for a environnmental 
   - project files (schematic + board)
 # Prerequisites 
 # Hardware
-- arduino nano 33 ble sense
-- esp32 (devkit)
+- arduino nano 33 ble sense or ESP32 devkit or ESP-EYE v2.2
+- Raspberry pi or linux enabled device 
 # Software 
 - edge impulse cli
 - Python (latest stable version)
