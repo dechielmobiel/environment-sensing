@@ -136,7 +136,10 @@ static const float features[] = {
 after this compare the result of the code to the model and if the same the code is working correctly.
 
 # how to use a Tensorflow Lite model on edge devices.
-check the how to use tensorflow with c++.ipynb file for a tutorial on how to use a simple "Hello World" example model and convert it to a C++ tflite model. after you have confirmed this model to be working substitute the model with sound classifaction model. to import the ESC-50 model use the following lines. 
+for a full tutorial check the how to use tensorflow with c++.ipynb file for a tutorial on how to use a simple "Hello World" example model and convert it to a C++ tflite model. The example model that uses the ESC-50 dataset to classify cat and dog sounds can be found in the ESC-50.ipynb file.
+
+after you have confirmed this model to be working substitute the model with the sound classifaction model.
+To import the ESC-50 model use the following lines. 
 ```python
 _ = tf.keras.utils.get_file('esc-50.zip',
                         'https://github.com/karoldvl/ESC-50/archive/master.zip',
@@ -158,7 +161,7 @@ for example the class id's for the classes i used are:
 my_classes = ['coughing', 'snoring','sneezing', 'vacuum cleaner', 'train', 'thunderstorm' ]
 map_class_to_id = {'coughing':24, 'snoring':28, 'sneezing':21, 'vacuum cleaner':36, 'train':45, 'thunderstorm':19}
 ```
-if you want to use the same classes paste and replace these lines into the follwing block.
+if you want to use the same classes paste and replace these lines in the ESC-50 example.
 ```
 my_classes = ['dog', 'cat']
 map_class_to_id = {'dog':0, 'cat':1}
