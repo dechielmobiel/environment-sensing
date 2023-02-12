@@ -22,6 +22,12 @@ this repository contains all the code and hardware designs for a environmental s
 # Hardware
 - arduino nano 33 ble sense or ESP32 devkit or ESP-EYE v2.2
 - Raspberry pi or linux enabled device 
+- Used sensors
+  - VEML7700 (lux sensor)
+  - SGP30 (Co2 and VOC sensor)
+  - DPS310 (air pressure sensor)
+  - SHTC3 (temperature and humidity sensor)
+  - SPH0645LM4H-1 (I2S mems microphone)
 # Software 
 - edge impulse cli
 - Python (latest stable version)
