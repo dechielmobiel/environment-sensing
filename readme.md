@@ -1,5 +1,5 @@
 # Environment-sensing
-this repository contains all the code and hardware designs for a environnmental sensing device that measures environmental paramaters like: illuminance, VOC's, Co2, 11 channel collour, sound, humdidity, temperature and atmospheric pressure, then you can employ tinyML to classify some data with Edge impulse or use a tensorflow model.
+this repository contains all the code and hardware designs for a environmental sensing device that measures environmental paramaters like: illuminance, VOC's, Co2, 11 channel collour, sound, humdidity, temperature and atmospheric pressure, then you can employ tinyML to classify some data with Edge impulse or use a tensorflow model.
 # Repesitory contents
 - bill of materials 💸
 - code 📄
