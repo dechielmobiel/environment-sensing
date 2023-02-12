@@ -151,7 +151,7 @@ for a full tutorial check the how to use tensorflow with c++.ipynb file for a tu
 
 after you have confirmed this model to be working substitute the model with the sound classifaction model.
 To import the ESC-50 model use the following lines. 
-```ipython
+```python
 _ = tf.keras.utils.get_file('esc-50.zip',
                         'https://github.com/karoldvl/ESC-50/archive/master.zip',
                         cache_dir='./',
@@ -168,12 +168,12 @@ pd_data.head()
 ```
 lastly choose the labels/classes you want to use and specify the correct class id which can be found in the metadata file in the ESC-50 directory.
 for example the class id's for the classes i used are: 
-```
+```python
 my_classes = ['coughing', 'snoring','sneezing', 'vacuum cleaner', 'train', 'thunderstorm' ]
 map_class_to_id = {'coughing':24, 'snoring':28, 'sneezing':21, 'vacuum cleaner':36, 'train':45, 'thunderstorm':19}
 ```
 if you want to use the same classes paste and replace these lines in the ESC-50 example.
-```
+```python
 my_classes = ['dog', 'cat']
 map_class_to_id = {'dog':0, 'cat':1}
 
