@@ -29,7 +29,7 @@ this repository contains all the code and hardware designs for a environmental s
 # Use esp to capture datapoints for edge impulse
 first upload the ...data_aquisition code for example (AS7341_data_aquisition).this code can be editted for your specific sensor.
 Then open a commandprompt with edge impulse cli installed and type in the following command.
-```
+```cli
 edge-impulse-data-fowarder
 ```
 then the cli will ask you to login to your edge impulse account.
