@@ -29,7 +29,9 @@ this repository contains all the code and hardware designs for a environmental s
 - esp idf/arduino ide/visual studio code
 - git bash
 - nrf connect (Android or IOS)
-
+# Edge impulse public projects
+- sound classification with ESC-50 (requires a I2S microphone): https://studio.edgeimpulse.com/public/126166/latest/create-impulse
+- classify the type of light ( requires AS7341 sensor): https://studio.edgeimpulse.com/studio/54747
 # Use esp to capture datapoints for edge impulse
 first upload the ...data_aquisition code for example (AS7341_data_aquisition).this code can be editted for your specific sensor.
 Then open a commandprompt with edge impulse cli installed and type in the following command.
