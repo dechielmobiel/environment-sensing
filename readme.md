@@ -23,6 +23,7 @@ this repository contains all the code and hardware designs for a environmental s
 - arduino nano 33 ble sense or ESP32 devkit or ESP-EYE v2.2
 - Raspberry pi or linux enabled device 
 - Used sensors
+  - AS7341 (10 channel color sensor)
   - VEML7700 (lux sensor)
   - SGP30 (Co2 and VOC sensor)
   - DPS310 (air pressure sensor)
