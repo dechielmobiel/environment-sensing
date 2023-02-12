@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="800" height="100" src="https://github.com/dechielmobiel/environment-sensing/blob/main/pcb%20files/pictures/20221102_131609.jpg">
+</p>
+
 # Environment-sensing
 this repository contains all the code and hardware designs for a environmental sensing device that measures environmental paramaters like: illuminance, VOC's, Co2, 11 channel collour, sound, humdidity, temperature and atmospheric pressure, then you can employ tinyML to classify some data with Edge impulse or use a tensorflow model.
 # Repesitory contents
