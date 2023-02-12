@@ -180,13 +180,13 @@ base_data_path = './datasets/ESC-50-master/audio/'
 pd_data = pd.read_csv(esc50_csv)
 pd_data.head()
 ```
-lastly choose the labels/classes you want to use and specify the correct class id which can be found in the metadata file in the ESC-50 directory.
+Lastly choose the labels/classes you want to use and specify the correct class id which can be found in the metadata file in the ESC-50 directory.
 for example the class id's for the classes i used are: 
 ```python
 my_classes = ['coughing', 'snoring','sneezing', 'vacuum cleaner', 'train', 'thunderstorm' ]
 map_class_to_id = {'coughing':24, 'snoring':28, 'sneezing':21, 'vacuum cleaner':36, 'train':45, 'thunderstorm':19}
 ```
-if you want to use the same classes paste and replace these lines in the ESC-50 example.
+If you want to use my classes copy and paste the lines above in the ESC-50 example lines below. 
 ```python
 my_classes = ['dog', 'cat']
 map_class_to_id = {'dog':0, 'cat':1}
