@@ -42,7 +42,7 @@ now you can build your impulse
 # deploy the impulse on a esp32 
 the code for the deployment of your impulse on esp32 (or other adruino enabled devices) is based on the data forwarder code and can be modified to work with your sensor just as in the aquisition. To change or upgrade the model you only have to change the inference include file.
 here is a example of the code for the AS7341.
-```
+```arduino
 // Include the Arduino library here (something like your_project_inference.h) 
 // In the Arduino IDE see **File > Examples > Your project name - Edge Impulse > Static buffer** to get the exact name
 #include <zonlicht_vs_kunstlicht_inferencing.h>
