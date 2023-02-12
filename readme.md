@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="800" height="100" src="https://github.com/dechielmobiel/environment-sensing/blob/main/pcb%20files/pictures/20221102_131609.jpg">
+  <img width="800" height="100" src="https://github.com/dechielmobiel/environment-sensing/blob/main/pcb%20files/pictures/20221102_131505.jpg">
 </p>
 
 # Environment-sensing
