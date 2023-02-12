@@ -9,6 +9,8 @@ this repository contains all the code and hardware designs for a environmental s
   - BLE
   - ESPhome
 - mechanical drawings 🔧
+  - STL files
+  - render pictures
 - pcb files 🔋
   - Gerber files
   - project files (schematic + board)
