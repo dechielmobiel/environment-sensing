@@ -201,6 +201,24 @@ filtered_pd = filtered_pd.assign(filename=full_path)
 
 filtered_pd.head(10)
 ```
+# how to convert the model to Tensorflow Lite C++ library.
+Convert the TensorFlow Lite quantized model into a C source file that can be loaded by TensorFlow Lite for Microcontrollers.
+
+```python
+# Install xxd if it is not available
+!apt-get update && apt-get -qq install xxd
+# Convert to a C source file, i.e, a TensorFlow Lite for Microcontrollers model
+!xxd -i {MODEL_TFLITE} > {MODEL_TFLITE_MICRO}
+# Update variable names
+REPLACE_TEXT = MODEL_TFLITE.replace('/', '_').replace('.', '_')
+!sed -i 's/'{REPLACE_TEXT}'/g_model/g' {MODEL_TFLITE_MICRO} 
+```
+# deploy your model 
+To use your model with ESP32 run the folowing commands:
+```python
+make -f tensorflow/lite/micro/tools/make/Makefile third_party_downloads
+make -f tensorflow/lite/micro/tools/make/Makefile "your_model.cc"
+```      
 
                        
 
