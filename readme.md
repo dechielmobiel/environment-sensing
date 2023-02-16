@@ -201,6 +201,33 @@ filtered_pd = filtered_pd.assign(filename=full_path)
 
 filtered_pd.head(10)
 ```
+# how to convert the Tensorflow yamnet model to a tensorflow Lite model.
+```python
+# Convert the model to the TensorFlow Lite format without quantization
+converter = tf.lite.TFLiteConverter.from_saved_model(MODEL_TF)
+model_no_quant_tflite = converter.convert()
+
+# Save the model to disk
+open(MODEL_NO_QUANT_TFLITE, "wb").write(model_no_quant_tflite)
+
+# Convert the model to the TensorFlow Lite format with quantization
+def representative_dataset():
+  for i in range(500):
+    yield([x_train[i].reshape(1, 1)])
+# Set the optimization flag.
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+# Enforce integer only quantization
+converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
+converter.inference_input_type = tf.int8
+converter.inference_output_type = tf.int8
+# Provide a representative dataset to ensure we quantize correctly.
+converter.representative_dataset = representative_dataset
+model_tflite = converter.convert()
+
+# Save the model to disk
+open(MODEL_TFLITE, "wb").write(model_tflite)
+```
+After this compare the result of the newly generated model to the original see: https://github.com/dechielmobiel/environment-sensing/blob/main/how%20to%20use%20tensorflow%20with%20c%2B%2B.ipynb for more information. 
 # how to convert the model to Tensorflow Lite C++ library.
 Convert the TensorFlow Lite quantized model into a C source file that can be loaded by TensorFlow Lite for Microcontrollers.
 
