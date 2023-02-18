@@ -36,6 +36,9 @@ this repository contains all the code and hardware designs for a environmental s
 - Jupyter notebook or Jupyter labs
 - esp idf/arduino ide/visual studio code
 - git bash
+- NumPy
+- TensorFlow Hub
+- Tensorflow_io 0.28
 - nrf connect (Android or IOS)
 # Edge impulse public projects
 - sound classification with ESC-50 (requires a I2S microphone): https://studio.edgeimpulse.com/public/126166/latest/create-impulse
