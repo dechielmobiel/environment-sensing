@@ -41,9 +41,9 @@ this repository contains all the code and hardware designs for a environmental s
 - Tensorflow_io 0.28
 - nrf connect (Android or IOS)
 - (optional)
- - ESPhome
- - Home assistant 
- - InfluxdB
+  - ESPhome
+  - Home assistant 
+  - InfluxdB
 # Edge impulse public projects
 - sound classification with ESC-50 (requires a I2S microphone): https://studio.edgeimpulse.com/public/126166/latest/create-impulse
 - classify the type of light ( requires AS7341 sensor): https://studio.edgeimpulse.com/studio/54747
