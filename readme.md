@@ -34,7 +34,10 @@ this repository contains all the code and hardware designs for a environmental s
 - Python (latest stable version)
 - tensorflow 2.11
 - Jupyter notebook or Jupyter labs
-- esp idf/arduino ide/visual studio code
+- IDE of choice
+  - esp idf (in the case of Tensorflow this is required for use with ESP eye)
+  - arduino ide 
+  - visual studio code
 - git bash
 - NumPy
 - TensorFlow Hub
