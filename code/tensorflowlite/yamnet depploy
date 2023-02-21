@@ -1,0 +1,111 @@
+pip install tensorflow numpy
+
+model = tf.saved_model.load('yamnet/saved_model')
+
+# Extract embeddings from the training set
+train_embeddings = []
+train_labels = []
+for filename, label in train_data:
+    spectrogram = get_spectrogram(filename)
+    embedding = model(spectrogram)[0].numpy()
+    train_embeddings.append(embedding)
+    train_labels.append(label)
+
+# Extract embeddings from the validation set
+val_embeddings = []
+val_labels = []
+for filename, label in val_data:
+    spectrogram = get_spectrogram(filename)
+    embedding = model(spectrogram)[0].numpy()
+    val_embeddings.append(embedding)
+    val_labels.append(label)
+
+# Train a classifier on the embeddings
+classifier = sklearn.linear_model.LogisticRegression(max_iter=1000)
+classifier.fit(train_embeddings, train_labels)
+
+# Evaluate the classifier on the validation set
+accuracy = classifier.score(val_embeddings, val_labels)
+
+then paste the esc-50 part
+classes = ['coughing', 'sneezing', 'thunderstorm', 'train', 'snoring', 'vacuum cleaner']
+
+import os
+import numpy as np
+import sklearn
+
+def get_spectrogram(file_path):
+    waveform, sample_rate = librosa.load(file_path, sr=16000)
+    spectrogram = librosa.feature.melspectrogram(waveform, sr=sample_rate, n_mels=64)
+    spectrogram = librosa.power_to_db(spectrogram, ref=np.max)
+    spectrogram = spectrogram.astype(np.float32)
+    return spectrogram
+
+def get_data_for_classes(classes, data_dir):
+    data = []
+    for file_name in os.listdir(data_dir):
+        if not file_name.endswith('.wav'):
+            continue
+        label = None
+        for class_name in classes:
+            if class_name in file_name:
+                label = class_name
+                break
+        if label is not None:
+            file_path = os.path.join(data_dir, file_name)
+            data.append((file_path, label))
+    return data
+
+# Extract embeddings from the training set
+train_data = get_data_for_classes(classes, 'ESC-50-master/audio')
+train_embeddings = []
+train_labels = []
+for filename, label in train_data:
+    spectrogram = get_spectrogram(filename)
+    embedding = model(spectrogram)[0].numpy()
+    train_embeddings.append(embedding)
+    train_labels.append(label)
+
+# Extract embeddings from the validation set
+val_data = get_data_for_classes(classes, 'ESC-50-master/audio')
+val_embeddings = []
+val_labels = []
+for filename, label in val_data:
+    spectrogram = get_spectrogram(filename)
+    embedding = model(spectrogram)[0].numpy()
+    val_embeddings.append(embedding)
+    val_labels.append(label)
+
+# Train a classifier on the embeddings
+classifier = sklearn.linear_model.LogisticRegression(max_iter=1000)
+classifier.fit(train_embeddings, train_labels)
+
+# Evaluate the classifier on the validation set
+accuracy = classifier.score(val_embeddings, val_labels)
+
+print(f'Accuracy: {accuracy}')
+
+then convert to tf lite 
+
+import tensorflow as tf
+
+# Load the YAMNet model
+model = tf.saved_model.load('yamnet/saved_model')
+
+# Create a TFLite converter and convert the model
+converter = tf.lite.TFLiteConverter.from_saved_model('yamnet/saved_model')
+tflite_model = converter.convert()
+
+# Save the TFLite model to a file
+with open('yamnet.tflite', 'wb') as f:
+    f.write(tflite_model)
+
+to run on a microcontroller download the TFLM library 
+
+git clone https://github.com/tensorflow/tensorflow.git
+
+idf.py create-project my_project --template esp-idf-template
+
+set(TENSORFLOW_DIR /path/to/tensorflow)
+set(TENSORFLOW_LIB ${TENSORFLOW_DIR}/tensorflow/lite/micro/tools/make/gen/linux_x86_64/lib/libtensorflow-lite.a)
+target_link_libraries(${COMPONENT_LIB} ${TENSORFLOW_LIB})
